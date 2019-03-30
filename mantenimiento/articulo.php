@@ -41,10 +41,31 @@
   <!-- Page Content -->
   <div class="container">
 
-
+<br>
  <div class="row">
     
-    
+    <table class="table" style="background: white">
+  <thead class="oscuro">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Descripción</th>
+      <th scope="col">Existencia</th>
+      <th scope="col">Costo</th>
+      <th scope="col">Utilidad</th>
+      <th scope="col">Precio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Atun</td>
+      <td>10</td>
+      <td>575</td>
+      <td>20%</td>
+      <td>690</td>
+    </tr>
+  </tbody>
+</table>
 
   </div>
 </div>
