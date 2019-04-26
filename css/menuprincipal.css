@@ -1,0 +1,36 @@
+body{
+    background-color: mintcream;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.divMenu{
+    background-color: #dcf8c4;  
+    width: 350px;
+    border: 15px solid #075E54;
+    padding: 35px;
+    margin-top: 50px;
+    margin-left: 425px;
+}
+
+a{
+    color: #000000;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+h1{
+    margin-top: 50px;
+    color: #1DB954;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.divWelcome{    
+    font-family: 'Ubuntu', sans-serif;
+    text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
+}
+
+
+

@@ -1,0 +1,22 @@
+body{
+    background-color: mintcream;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.divMantenimiento{
+    background-color: #dcf8c4;  
+    width: 400px;
+    border: 15px solid #075E54;
+    padding: 45px;
+    margin-top: 125px;
+    margin-left: 390px;
+    border-style: dashed;
+}
+
+a{
+    color: #1db954;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: bold;
+    font-size: 23px;
+}
+
