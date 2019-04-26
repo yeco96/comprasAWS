@@ -30,8 +30,8 @@ $rol = $_SESSION["datos-usuario"]["rol"];
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link"  href="menu-principal.php">Inicio
+                    <li class="nav-item ">
+                        <a class="nav-link" href="menu-principal.php">Inicio
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
@@ -44,8 +44,8 @@ $rol = $_SESSION["datos-usuario"]["rol"];
                             <a class="nav-link" href="menu-usuario.php">usuario</a>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="articulo.php">articulo</a>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="articulo.php">articulo<span class="sr-only">(current)</span></a>
                         </li>
 
                         <li class="nav-item">
@@ -80,16 +80,41 @@ $rol = $_SESSION["datos-usuario"]["rol"];
     </nav>
 
 
+  <!-- Page Content -->
+  <div class="container">
 
-    <div class="container">
-    <div class="row">
-      <div class="col-12 mx-auto">
-        <div class="card card-signin my-5">
-          <img src="img/banner.jpg" class="img-fluid" alt="Responsive image">
-        </div>
-      </div>
-    </div>
+<br>
+ <div class="row">
+    
+    <table class="table" style="background: white">
+  <thead class="oscuro">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Descripción</th>
+      <th scope="col">Existencia</th>
+      <th scope="col">Costo</th>
+      <th scope="col">Utilidad</th>
+      <th scope="col">Precio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Atun</td>
+      <td>10</td>
+      <td>575</td>
+      <td>20%</td>
+      <td>690</td>
+    </tr>
+  </tbody>
+</table>
+
   </div>
+</div>
+  <!-- Bootstrap core JavaScript -->
+  <script src="../vendor/jquery/jquery.min.js"></script>
+  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="../css/style.css">
 
 </body>
 
