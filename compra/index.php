@@ -40,18 +40,18 @@ $rol = $_SESSION["datos-usuario"]["rol"];
                 <a class="nav-link" href="../menu-usuario.php">usuario</a>
               </li>
 
-              <li class="nav-item active">
-                <a class="nav-link" href="articulo/index.php">articulo <span class="sr-only">(current)</span></a>
+              <li class="nav-item">
+                <a class="nav-link" href="../articulo/index.php">articulo</a>
               </li>
 
-              <li class="nav-item">
-                <a class="nav-link" href="../compra/index.php">compra</a>
+              <li class="nav-item active">
+                <a class="nav-link" href="../compra/index.php">compra <span class="sr-only">(current)</span></a>
               </li>
             <?php
           } else {
             ?>
-              <li class="nav-item">
-                <a class="nav-link" href="../compra/index.php">compra</a>
+              <li class="nav-item active">
+                <a class="nav-link" href="../compra/index.php">compras <span class="sr-only">(current)</span></a>
               </li>
 
             <?php
@@ -61,7 +61,7 @@ $rol = $_SESSION["datos-usuario"]["rol"];
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Usuario</a>
               <div class="dropdown-menu">
-                <a class="dropdown-item" href="#"><?php echo $nombre . "  (" . $rol . ")"; ?></a>
+                <a class="dropdown-item" href="#"><?php echo $nombre . " (" . $rol . ")"; ?></a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="../index.php">Cerrar Sesión</a>
               </div>

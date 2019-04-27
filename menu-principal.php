@@ -49,17 +49,13 @@ $rol = $_SESSION["datos-usuario"]["rol"];
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="menu-compra.php">compra</a>
+                            <a class="nav-link" href="compra/index.php">compra</a>
                         </li>
                     <?php
                 } else {
                     ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="mi-perfil.php">compras</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="catalogo.php">compras</a>
+                            <a class="nav-link" href="compra/index.php">compra</a>
                         </li>
 
                     <?php
@@ -69,7 +65,7 @@ $rol = $_SESSION["datos-usuario"]["rol"];
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Usuario</a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#"><?php echo $nombre . " " . $apellido . " (" . $rol . ")"; ?></a>
+                        <a class="dropdown-item" href="#"><?php echo $nombre . "  (" . $rol . ")"; ?></a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="index.php">Cerrar Sesión</a>
                         </div>
