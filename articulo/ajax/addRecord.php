@@ -1,6 +1,6 @@
 <?php
 
-echo  $_POST['codigoBarras'];
+
 
 	if(isset($_POST['codigoBarras']) && isset($_POST['descripcion']) && isset($_POST['utilidad']) && isset($_POST['impuesto']))
 	{

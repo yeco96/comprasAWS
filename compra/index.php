@@ -75,6 +75,8 @@ $rol = $_SESSION["datos-usuario"]["rol"];
 
   <!-- Begin page content -->
 
+  <input type="hidden" id="numCompra">
+
   <div class="container">
 
     <br>
@@ -88,8 +90,12 @@ $rol = $_SESSION["datos-usuario"]["rol"];
           <div class="row">
             <div class="col-md-12">
               <div class="pull-right">
-                <button class="btn btn-success" data-toggle="modal" data-target="#add_new_record_modal">Agregar Articulo</button>
+                <button class="btn btn-success" data-toggle="modal" data-target="#add_new_record_modal">Iniciar Compra</button>
+                <button class="btn btn-info" data-toggle="modal" data-target="#add_new_detail_modal">Agregar Detalle</button>
+                <button class="btn btn-warning" data-toggle="modal" data-target="#add_new_detail_modal">Facturar</button>
               </div>
+              
+
             </div>
           </div>
           <br>
@@ -108,7 +114,7 @@ $rol = $_SESSION["datos-usuario"]["rol"];
             <div class="modal-content">
 
               <div class="modal-header">
-                <h5 class="modal-title">Agregar </h5>
+                <h5 class="modal-title">Factura Provedor </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
@@ -116,41 +122,58 @@ $rol = $_SESSION["datos-usuario"]["rol"];
 
               <div class="modal-body">
                 <div class="form-group">
-                  <label for="codigoBarras">Codigo de Barras</label>
-                  <input type="text" id="codigoBarras" maxlength="13" value="" class="form-control" />
+                  <label for="numeroFactura">Numero Factura</label>
+                  <input type="text" id="numeroFactura" maxlength="13" value="" class="form-control" />
                 </div>
-                <div class="form-group">
-                  <label for="descripcion">Descripción</label>
-                  <input type="text" id="descripcion" value="" class="form-control" />
-                </div>
-                <div class="form-group">
-                  <label for="utilidad">Utilidad</label>
-                  <input type="number" id="utilidad" class="form-control" value="" />
-                </div>
-                <!-- <div class="form-group">
-                  <label for="impuesto">Impuesto</label>
-                  <input type="text" id="impuesto" class="form-control" value="" />
-                </div> -->
-                <div class="form-group">
-                  <label for="impuesto">Impuesto</label>
-                  <select id="impuesto" class="form-control">
-                    <option value="0">0 %</option>
-                    <option value="1">1 %</option>
-                    <option value="3">3 %</option>
-                    <option value="4">4 %</option>
-                    <option value="13">13 %</option>
-                  </select>
-                </div>
+
 
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary" onclick="addRecord()">Agregar</button>
+                <button type="button" class="btn btn-primary" onclick="addRecord()">Inicar</button>
               </div>
             </div>
           </div>
         </div>
         <!-- // Modal -->
+
+
+        <div class="modal fade" id="add_new_detail_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+
+              <div class="modal-header">
+                <h5 class="modal-title">articulo </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+
+              <div class="modal-body">
+                <div class="form-group">
+                  <label for="Codigo">Codigo</label>
+                  <input type="text" id="Codigo" maxlength="13" value="" class="form-control" />
+                </div>
+
+                <div class="form-group">
+                  <label for="Codigo">Costo</label>
+                  <input type="text" id="Codigo" maxlength="13" value="" class="form-control" />
+                </div>
+
+                <div class="form-group">
+                  <label for="Codigo">Cantidad</label>
+                  <input type="text" id="Codigo" maxlength="13" value="" class="form-control" />
+                </div>
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" onclick="addDetail()">Inicar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
 
         <!-- Modal - Update User details -->
         <div class="modal fade" id="update_user_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">

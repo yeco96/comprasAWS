@@ -1,25 +1,48 @@
 <?php
 
-echo  $_POST['codigoBarras'];
-
-	if(isset($_POST['codigoBarras']) && isset($_POST['descripcion']) && isset($_POST['utilidad']) && isset($_POST['impuesto']))
+	if(isset($_POST['numeroFactura']))
 	{
 		// include Database connection file 
 		include("db_connection.php");
 
 		// get values 
-		$codigoBarras = $_POST['codigoBarras'];
-		$descripcion = $_POST['descripcion'];
-		$utilidad = $_POST['utilidad'];
-		$impuesto = $_POST['impuesto'];
+		$numeroFactura = $_POST['numeroFactura'];
+		$id = "1";
 
-		$query = "INSERT INTO articulo(codigoBarras, descripcion, costo, utilidad, impuesto, precioVenta, existencia) 
-		VALUES('$codigoBarras', '$descripcion', 0, '$utilidad', '$impuesto', 0, 0)";
+
+		$query = "INSERT INTO compra (numeroFactura, fechaRegistro, cedulaUsuario, totalCompra) 
+		VALUES('$numeroFactura', now(), '$id', 0)";
 		if (!$result = mysqli_query($con, $query)) {
 	        exit(mysqli_error($con));
-	    }
-	    echo "1 Record Added!";
+		}
+		
+
+		$query = "SELECT * FROM compra WHERE numeroFactura = '$numeroFactura'";
+		if (!$result = mysqli_query($con, $query)) {
+			exit(mysqli_error($con));
+		}
+		$response = array();
+
+		if(mysqli_num_rows($result) > 0) {
+			while ($row = mysqli_fetch_assoc($result)) {
+				$response = $row;
+			}
+
+
+			$response['status'] = 200;
+			$response['message'] = "Correcto";
+		}
+		else
+		{
+			$response['status'] = 400;
+			$response['message'] = "La compra no existe";
+		}
+
+	
 	}else{
-		echo "Faltan Datos";
+		$response['status'] = 400;
+		$response['message'] = "Faltan Datos";
 	}
+
+	echo json_encode($response);
 ?>
