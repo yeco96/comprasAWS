@@ -8,11 +8,13 @@
 		// get values 
 		$Codigo = $_POST['Codigo'];
 		$solicitud = $_POST['solicitud'];
+		$costo = $_POST['costo'];
+		$cantidad = $_POST['cantidad'];
 		$id = "1";
 
 
 		$query = "INSERT INTO detalle (solicitud, codigo, costo, cantida) 
-		VALUES('$solicitud', '$Codigo', 2, 0)";
+		VALUES('$solicitud', '$Codigo', '$costo', '$cantidad')";
 		if (!$result = mysqli_query($con, $query)) {
 	        exit(mysqli_error($con));
 		}

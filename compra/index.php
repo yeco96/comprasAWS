@@ -88,14 +88,21 @@ $rol = $_SESSION["datos-usuario"]["rol"];
         <!-- crud jquery-->
         <div class="">
           <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-8">
               <div class="pull-right">
                 <button class="btn btn-success" data-toggle="modal" data-target="#add_new_record_modal">Iniciar Compra</button>
                 <button class="btn btn-info" data-toggle="modal" data-target="#add_new_detail_modal">Agregar Detalle</button>
-                <button class="btn btn-warning" data-toggle="modal" data-target="#add_new_detail_modal">Facturar</button>
-              </div>
-              
 
+              </div>
+
+
+            </div>
+            <div class="col-md-3">
+              <input type="text" disabled id="numeroFacturaTemp" maxlength="13" value="" class="form-control" />
+
+            </div>
+            <div class="col-md-1">
+              <button type="button" class="btn btn-warning" onclick="UpdateUserDetails()">Facturar</button>
             </div>
           </div>
           <br>
@@ -151,18 +158,29 @@ $rol = $_SESSION["datos-usuario"]["rol"];
 
               <div class="modal-body">
                 <div class="form-group">
-                  <label for="Codigo">Codigo</label>
-                  <input type="text" id="Codigo" maxlength="13" value="" class="form-control" />
+                  <label for="codigo">Codigo</label>
+                  <div class="input-group mb-3">
+                    <input type="number" id="codigo" maxlength="13" value="" class="form-control">
+                    <div class="input-group-append">
+                      <button class="btn btn-outline-secondary" type="button">Buscar</button>
+                    </div>
+                  </div>
+
                 </div>
 
                 <div class="form-group">
-                  <label for="Codigo">Costo</label>
-                  <input type="text" id="Codigo" maxlength="13" value="" class="form-control" />
+                  <label for="desc">Descripción</label>
+                  <input type="text" id="desc" disabled maxlength="13" value="" class="form-control" />
                 </div>
 
                 <div class="form-group">
-                  <label for="Codigo">Cantidad</label>
-                  <input type="text" id="Codigo" maxlength="13" value="" class="form-control" />
+                  <label for="costo">Costo</label>
+                  <input type="number" id="costo" maxlength="13" value="" class="form-control" />
+                </div>
+
+                <div class="form-group">
+                  <label for="cantidad">Cantidad</label>
+                  <input type="number" id="cantidad" maxlength="13" value="" class="form-control" />
                 </div>
 
               </div>

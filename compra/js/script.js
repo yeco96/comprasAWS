@@ -19,6 +19,8 @@ function addRecord() {
         $("#numeroFactura").val("");
 
         $("#numCompra").val(user.solicitud);
+        $("#numeroFacturaTemp").val(numeroFactura);
+        
 
         // GetUserDetails(user.solicitud);
 
@@ -29,27 +31,23 @@ function addRecord() {
 // Add Record
 function addDetail() {
     // get values
-    var Codigo = $("#Codigo").val();
+    var codigo = $("#codigo").val();
+    var costo = $("#costo").val();
+    var cantidad = $("#cantidad").val();
     var numCompra = $("#numCompra").val();
     // Add record
     $.post("ajax/addDetail.php", {
-        Codigo: Codigo,
-        solicitud: numCompra
+        Codigo: codigo,
+        solicitud: numCompra,
+        costo: costo,
+        cantidad: cantidad
     }, function (data, status) {
 
         var user = JSON.parse(data);
 
-        // close the popup
-        $("#add_new_record_modal").modal("hide");
-        // read records again
+        $("#add_new_detail_modal").modal("hide");
         readRecords(numCompra);
-        // clear fields from the popup
         $("#Codigo").val("");
-
-
-
-        // GetUserDetails(user.solicitud);
-
     });
 }
 
@@ -96,27 +94,12 @@ function GetUserDetails(id) {
 }
 
 function UpdateUserDetails() {
-    // get values
-    var codigoBarras = $("#update_codigoBarras").val();
-    var descripcion = $("#update_descripcion").val();
-    var utilidad = $("#update_utilidad").val();
-    var impuesto = $("#update_impuesto").val();
-
-    // get hidden field value
-    var id = $("#hidden_user_id").val();
-
+    var id = $("#numCompra").val();
     // Update the details by requesting to the server using ajax
     $.post("ajax/updateDetails.php", {
-        id: id,
-        codigoBarras: codigoBarras,
-        descripcion: descripcion,
-        utilidad: utilidad,
-        impuesto: impuesto
+        id: id
     },
         function (data, status) {
-            // hide modal popup
-            $("#update_user_modal").modal("hide");
-            // reload Users by using readRecords();
             readRecords();
         }
     );

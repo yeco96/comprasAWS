@@ -7,15 +7,10 @@ if(isset($_POST))
 {
     // get values
     $id = $_POST['id'];
-    $codigoBarras = $_POST['codigoBarras'];
-    $descripcion = $_POST['descripcion'];
-    $utilidad = $_POST['utilidad'];
-    $impuesto = $_POST['impuesto'];
-
 
     // Updaste User details
-    $query = "UPDATE articulo SET codigoBarras='$codigoBarras', descripcion='$descripcion', utilidad = '$utilidad', impuesto = '$impuesto'
-     WHERE codigo = '$id'";
+    $query = "update articulo a join detalle d on a.codigo = d.codigo set a.costo = d.costo, a.existencia = (a.existencia + d.cantida)
+     where d.solicitud = '$id'";
     if (!$result = mysqli_query($con, $query)) {
         exit(mysqli_error($con));
     }
