@@ -2,6 +2,8 @@
 // include Database connection file
 include("db_connection.php");
 
+
+
 // check request
 if(isset($_POST['id']) && isset($_POST['id']) != "")
 {
@@ -9,7 +11,7 @@ if(isset($_POST['id']) && isset($_POST['id']) != "")
     $user_id = $_POST['id'];
 
     // Get User Details
-    $query = "SELECT * FROM matriculaobs WHERE idobs = '$user_id'";
+    $query = "SELECT * FROM articulo WHERE codigo = '$user_id'";
     if (!$result = mysqli_query($con, $query)) {
         exit(mysqli_error($con));
     }

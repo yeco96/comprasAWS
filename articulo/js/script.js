@@ -52,16 +52,17 @@ function DeleteUser(id) {
 function GetUserDetails(id) {
     // Add User ID to the hidden field for furture usage
     $("#hidden_user_id").val(id);
-    $.post("ajax/readUserDetails.php", {
+    $.post("ajax/readDetails.php", {
             id: id
         },
         function (data, status) {
             // PARSE json data
             var user = JSON.parse(data);
             // Assing existing values to the modal popup fields
-            $("#update_idalumno").val(user.idalumno);
-            $("#update_codalumno").val(user.codalumno);
-            $("#update_obs").val(user.obs);
+            $("#update_codigoBarras").val(user.codigoBarras);
+            $("#update_descripcion").val(user.descripcion);
+            $("#update_utilidad").val(user.utilidad);
+            $("#update_impuesto").val(Number(user.impuesto).toFixed(0));
         }
     );
     // Open modal popup
@@ -70,19 +71,21 @@ function GetUserDetails(id) {
 
 function UpdateUserDetails() {
     // get values
-    var idalumno = $("#update_idalumno").val();
-    var codalumno = $("#update_codalumno").val();
-    var obs = $("#update_obs").val();
+    var codigoBarras = $("#update_codigoBarras").val();
+    var descripcion = $("#update_descripcion").val();
+    var utilidad = $("#update_utilidad").val();
+    var impuesto = $("#update_impuesto").val();
 
     // get hidden field value
     var id = $("#hidden_user_id").val();
 
     // Update the details by requesting to the server using ajax
-    $.post("ajax/updateUserDetails.php", {
+    $.post("ajax/updateDetails.php", {
             id: id,
-            idalumno: idalumno,
-            codalumno: codalumno,
-            obs: obs
+            codigoBarras: codigoBarras,
+            descripcion: descripcion,
+            utilidad: utilidad,
+            impuesto: impuesto
         },
         function (data, status) {
             // hide modal popup

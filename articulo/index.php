@@ -76,6 +76,7 @@ $rol = $_SESSION["datos-usuario"]["rol"];
     </nav>
   </header>
 
+
   <!-- Begin page content -->
 
   <div class="container">
@@ -87,7 +88,7 @@ $rol = $_SESSION["datos-usuario"]["rol"];
 
         <!-- Content Section -->
         <!-- crud jquery-->
-        <div class="da">
+        <div class="">
           <div class="row">
             <div class="col-md-12">
               <div class="pull-right">
@@ -145,8 +146,6 @@ $rol = $_SESSION["datos-usuario"]["rol"];
                   </select>
                 </div>
 
-
-
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
@@ -171,18 +170,31 @@ $rol = $_SESSION["datos-usuario"]["rol"];
 
 
               <div class="modal-body">
+
                 <div class="form-group">
-                  <label for="idalumno">Cod. Alumno</label>
-                  <input type="text" id="update_idalumno" value="" class="form-control" />
+                  <label for="update_codigoBarras">Codigo de Barras</label>
+                  <input type="text" id="update_codigoBarras" value="" class="form-control" />
                 </div>
                 <div class="form-group">
-                  <label for="codalumno">Cod. Alumno</label>
-                  <input type="text" id="update_codalumno" placeholder="Last Name" class="form-control" />
+                  <label for="update_descripcion">Descripción</label>
+                  <input type="text" id="update_descripcion" value="" class="form-control" />
                 </div>
                 <div class="form-group">
-                  <label for="obs">Observaciones</label>
-                  <textarea style="text-transform:uppercase" id="update_obs" class="form-control"></textarea>
+                  <label for="update_utilidad">Utilidad</label>
+                  <input type="number" id="update_utilidad" class="form-control" value="" />
                 </div>
+
+                <div class="form-group">
+                  <label for="update_impuesto">Impuesto</label>
+                  <select id="update_impuesto" class="form-control">
+                    <option value="0">0 %</option>
+                    <option value="1">1 %</option>
+                    <option value="3">3 %</option>
+                    <option value="4">4 %</option>
+                    <option value="13">13 %</option>
+                  </select>
+                </div>
+
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
