@@ -1,0 +1,23 @@
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+CREATE TABLE IF NOT EXISTS `articulo` (
+  `codigo` int(11) NOT NULL,
+  `codigoBarras` varchar(13) CHARACTER SET latin1 DEFAULT NULL,
+  `descripcion` varchar(100) CHARACTER SET latin1 DEFAULT NULL,
+  `costo` DECIMAL(18,3) DEFAULT NULL,
+  `utilidad` DECIMAL(6,3) DEFAULT NULL,
+  `impuesto` DECIMAL(18,3) DEFAULT NULL,
+  `precioVenta` DECIMAL(18,3) DEFAULT NULL,
+  `existencia` DECIMAL(18,3) DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COMMENT='Tabla articulos';
+
+
+ALTER TABLE `articulo`
+ ADD PRIMARY KEY (`codigo`);
+
+ALTER TABLE `articulo`
+MODIFY `codigo` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
+

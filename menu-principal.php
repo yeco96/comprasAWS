@@ -45,7 +45,7 @@ $rol = $_SESSION["datos-usuario"]["rol"];
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="articulo.php">articulo</a>
+                            <a class="nav-link" href="articulo/index.php">articulo</a>
                         </li>
 
                         <li class="nav-item">
