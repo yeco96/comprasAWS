@@ -5,7 +5,7 @@ function addRecord() {
     var descripcion = $("#descripcion").val();
     var utilidad = $("#utilidad").val();
     var impuesto = $("#impuesto").val();
-
+                       
     // Add record
     $.post("ajax/addRecord.php", {
         codigoBarras: codigoBarras,
@@ -15,6 +15,55 @@ function addRecord() {
     }, function (data, status) {
         // close the popup
         $("#add_new_record_modal").modal("hide");
+         if (!codigoBarras || codigoBarras == "") {
+
+                    var dialog = new Messi(
+                            'Debe ingresar codigo de barras.',
+                            {
+                                title: 'Mensaje',
+                                titleClass: 'anim error',
+                                buttons: [{id: 0, label: 'Cerrar', val: 'X'}]
+                            }
+                            );
+                }else if (!descripcion || descripcion == "") {
+                    var dialog = new Messi(
+                            'Debe ingresar descripcion.',
+                            {
+                                title: 'Mensaje',
+                                titleClass: 'anim error',
+                                buttons: [{id: 0, label: 'Cerrar', val: 'X'}]
+                            }
+                            );
+                }else if (!utilidad || utilidad == "") {
+                    var dialog = new Messi(
+                            'Debe ingresar la utilidad.',
+                            {
+                                title: 'Mensaje',
+                                titleClass: 'anim error',
+                                buttons: [{id: 0, label: 'Cerrar', val: 'X'}]
+                            }
+                            );
+                }else if (!impuesto || impuesto == ""){
+                    var dialog = new Messi(
+                            'Debe ingresar impuesto.',
+                            {
+                                title: 'Mensaje',
+                                titleClass: 'anim error',
+                                buttons: [{id: 0, label: 'Cerrar', val: 'X'}]
+                            }
+                            );
+                        }else{
+                                    var dialog = new Messi(
+                            'Producto ingresado.',
+                            {
+                                title: 'Mensaje',
+                                titleClass: 'anim success',
+                                buttons: [{id: 0, label: 'Cerrar', val: 'X'}]
+                            }
+                            );
+                        }
+            
+
 
         // read records again
         readRecords();
@@ -36,9 +85,17 @@ function readRecords() {
 
 
 function DeleteUser(id) {
-    var conf = confirm("¿Está seguro, realmente desea eliminar el registro?");
-    if (conf == true) {
-        $.post("ajax/delete.php", {
+var dialog = new Messi(
+    'Esta seguro de eliminar el articulo?',
+    {
+        title: 'Confirmación',
+        buttons: [
+            {id: 0, label: 'Yes', val: 'Y'},
+            {id: 1, label: 'No', val: 'N'}
+        ],
+        callback: function(val) {
+            if(val=='Y'){
+                 $.post("ajax/delete.php", {
                 id: id
             },
             function (data, status) {
@@ -46,7 +103,11 @@ function DeleteUser(id) {
                 readRecords();
             }
         );
+            }
+        }
     }
+);
+
 }
 
 function GetUserDetails(id) {
@@ -78,7 +139,14 @@ function UpdateUserDetails() {
 
     // get hidden field value
     var id = $("#hidden_user_id").val();
-
+    var dialog = new Messi(
+    'Articulo actualizado.',
+    {
+        title: 'Actualizando',
+        titleClass: 'anim info',
+        buttons: [ {id: 0, label: 'Close', val: 'X'} ]
+    }
+);
     // Update the details by requesting to the server using ajax
     $.post("ajax/updateDetails.php", {
             id: id,
