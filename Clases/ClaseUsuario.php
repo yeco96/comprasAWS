@@ -110,7 +110,7 @@ class ClaseUsuario {
         $retorno = array();
 
         $sql = "SELECT * FROM usuarios WHERE Usuario='" . $datos["usuario"] . "'";
-        $sql .= " AND Contrasena='" . $datos["password"] . "'";
+        $sql .= " AND Contrasena='" .md5($datos["password"]) . "'";
         $resultado = $mysql->query($sql);
 
         if ($resultado->num_rows > 0) {
@@ -143,7 +143,7 @@ class ClaseUsuario {
         $sql = "INSERT INTO usuarios(Cedula,Nombre,Apellido,Telefono,Email,Usuario,Contrasena,Rol) VALUES (";
         $sql .= "'" . $datos["cedula"] . "','" . $datos["nombre"] . "','" . $datos["apellido"] . "',";
         $sql .= "'" . $datos["telefono"] . "','" . $datos["email"] . "','" . $datos["usuario"] . "',";
-        $sql .= "'" . $datos["contrasena"] . "','" . $datos["Rol"] . "')";
+        $sql .= "'" . md5($datos["contrasena"]) . "','" . $datos["Rol"] . "')";
         //echo $sql;
         $resultado = $mysql->query($sql);
         $id = $mysql->insert_id;
