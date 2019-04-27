@@ -36,7 +36,7 @@
 				<td>'.$row['codigo'].'</td>
 				<td>'.$row['codigoBarras'].'</td>
 				<td>'.$row['descripcion'].'</td>
-				<td>₡ '.number_format($row['precioVenta'], 3).'</td>
+				<td>₡ '.number_format($row['precioVenta'], 2).'</td>
 				<td>₡ '.number_format($row['costo'], 2).'</td>
 				<td>'.number_format($row['utilidad'], 2).' %</td>
 				<td>'.number_format($row['impuesto'], 2).' %</td>

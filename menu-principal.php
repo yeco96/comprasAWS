@@ -67,7 +67,7 @@ $rol = $_SESSION["datos-usuario"]["rol"];
                         <div class="dropdown-menu">
                         <a class="dropdown-item" href="#"><?php echo $nombre . "  (" . $rol . ")"; ?></a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="index.php">Cerrar Sesión</a>
+                            <a class="dropdown-item" href="cerrar.php">Cerrar Sesión</a>
                         </div>
                     </li>
                 </ul>

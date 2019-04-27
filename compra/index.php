@@ -1,5 +1,5 @@
 <?php
-require '../validar-acceso.php';
+require '../validar-accesoCrud.php';
 $nombre = $_SESSION["datos-usuario"]["nombre"];
 $apellido = $_SESSION["datos-usuario"]["apellido"];
 $rol = $_SESSION["datos-usuario"]["rol"];
@@ -63,7 +63,7 @@ $rol = $_SESSION["datos-usuario"]["rol"];
               <div class="dropdown-menu">
                 <a class="dropdown-item" href="#"><?php echo $nombre . " (" . $rol . ")"; ?></a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="../index.php">Cerrar Sesión</a>
+                <a class="dropdown-item" href="../cerrar.php">Cerrar Sesión</a>
               </div>
             </li>
           </ul>
@@ -90,9 +90,8 @@ $rol = $_SESSION["datos-usuario"]["rol"];
           <div class="row">
             <div class="col-md-8">
               <div class="pull-right">
-                <button class="btn btn-success" data-toggle="modal" data-target="#add_new_record_modal">Iniciar Compra</button>
-                <button class="btn btn-info" data-toggle="modal" data-target="#add_new_detail_modal">Agregar Detalle</button>
-
+                <button class="btn btn-success" id="btniniciar" data-toggle="modal" data-target="#add_new_record_modal">Iniciar Compra</button>
+                <button class="btn btn-info" id="btndetalle" data-toggle="modal" data-target="#add_new_detail_modal">Agregar Detalle</button>
               </div>
 
 
@@ -102,7 +101,7 @@ $rol = $_SESSION["datos-usuario"]["rol"];
 
             </div>
             <div class="col-md-1">
-              <button type="button" class="btn btn-warning" onclick="UpdateUserDetails()">Facturar</button>
+              <button type="button" id="btnfacturar" class="btn btn-warning" onclick="UpdateUserDetails()">Facturar</button>
             </div>
           </div>
           <br>
@@ -162,15 +161,15 @@ $rol = $_SESSION["datos-usuario"]["rol"];
                   <div class="input-group mb-3">
                     <input type="number" id="codigo" maxlength="13" value="" class="form-control">
                     <div class="input-group-append">
-                      <button class="btn btn-outline-secondary" type="button">Buscar</button>
+                      <button class="btn btn-outline-secondary" type="button" onclick="getArticulo()" >Buscar</button>
                     </div>
                   </div>
 
                 </div>
 
                 <div class="form-group">
-                  <label for="desc">Descripción</label>
-                  <input type="text" id="desc" disabled maxlength="13" value="" class="form-control" />
+                  <label for="articulo_descripcion">Descripción</label>
+                  <input type="text" id="articulo_descripcion" style=" text-transform: uppercase;" disabled maxlength="13" value="" class="form-control" />
                 </div>
 
                 <div class="form-group">
