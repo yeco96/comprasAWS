@@ -137,11 +137,11 @@ $rol = $_SESSION["datos-usuario"]["rol"];
                 <div class="form-group">
                   <label for="impuesto">Impuesto</label>
                   <select id="impuesto" class="form-control">
-                    <option>0 %</option>
-                    <option>1 %</option>
-                    <option>3 %</option>
-                    <option>4 %</option>
-                    <option>13 %</option>
+                    <option value="0">0 %</option>
+                    <option value="1">1 %</option>
+                    <option value="3">3 %</option>
+                    <option value="4">4 %</option>
+                    <option value="13">13 %</option>
                   </select>
                 </div>
 
